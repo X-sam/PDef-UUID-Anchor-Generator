@@ -31,7 +31,7 @@ void main(int argc,char * argv[])
 	}
 
 	RoseDesign * d = ROSE.findDesign(argv[1]);
-
+	RoseP21Writer::max_spec_version(PART21_ED3);
 	if (!d) return;
 
 	RoseCursor cur;
@@ -42,11 +42,13 @@ void main(int argc,char * argv[])
 
 	while ((obj = cur.next()) != 0){
 		stp_product_definition * pd = ROSE_CAST(stp_product_definition, obj);
-		unsigned char GUID[16];
-		get_guid(GUID);
-		printf("Product Definiton ID #%d \t GUID: %s\n", pd->id(),GUID);
+		std::string uuid = get_guid();
+		printf("Product Definiton ID #%d \t UUID: %s\n", pd->id(),uuid.c_str());
+		d->addName(uuid.c_str(), pd);
 	}
-
+	char outname[100];
+	_snprintf(outname, 100, "%swithUUIDAnchors.stp", d->name());
+	d->saveAs(outname);
 	system("pause");
 
     return;
