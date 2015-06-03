@@ -58,6 +58,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>stpcaddlld.lib;rosedlld.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(ROSE)\lib\i86_win32_vc12_md</AdditionalLibraryDirectories>
+      <SubSystem>NotSet</SubSystem>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">

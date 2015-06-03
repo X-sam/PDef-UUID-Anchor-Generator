@@ -19,6 +19,7 @@ void main(int argc,char **argv)
 		printf("Product Definiton ID #%d \n", pd->id());
 	}
 
+	system("pause");
 
     return;
 }
