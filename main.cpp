@@ -19,11 +19,20 @@
 #include <rose.h>
 #include <stp_schema.h>
 #include "GUID.h"
-void main(int argc,char **argv)
+#include <iostream>
+
+using namespace std;
+
+void main(int argc,char * argv[])
 {
     stplib_init();
 
-	RoseDesign * d = ROSE.findDesign("io1-md-214.stp.stp");
+	if (argc != 2){ //Makes sure that command line has 2 arguments
+		cerr << "Usage: " << argv[0] << "step file\n";
+		exit(1);
+	}
+
+	RoseDesign * d = ROSE.findDesign(argv[1]);
 
 	RoseCursor cur;
 	RoseObject * obj;
