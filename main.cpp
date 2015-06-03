@@ -1,19 +1,18 @@
 #include <rose.h>
 #include <stp_schema.h>
-#include <iostream>
-
-using namespace std;
 
 void main(int argc,char * argv[])
 {
     stplib_init();
 
 	if (argc != 2){ //Makes sure that command line has 2 arguments
-		cerr << "Usage: " << argv[0] << "step file\n";
-		exit(1);
+		printf("Usage: %s step file\n", argv[0]);
+		return;
 	}
 
 	RoseDesign * d = ROSE.findDesign(argv[1]);
+
+	if (!d) return;
 
 	RoseCursor cur;
 	RoseObject * obj;
