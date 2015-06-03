@@ -17,4 +17,5 @@
 // limitations under the License.
 
 #pragma once
-void get_guid(unsigned char uuid[16]);
+#include <string>
+std::string get_guid();
